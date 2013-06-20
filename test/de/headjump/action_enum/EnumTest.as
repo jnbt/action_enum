@@ -42,10 +42,10 @@ public class EnumTest {
   }
 
   [Test]
-  public function testEnumAllFailsOnUninitedClass():void {
+  public function testEnumAllThrowsOnUninitedClass():void {
     var failed:Boolean = false;
     try {
-      Enum.all(String);
+      Enum.all(String);  // String is just a random class that isn't initialized as Enum
     } catch(e:Error) {
       failed = true;
     }
@@ -56,6 +56,18 @@ public class EnumTest {
   [Test]
   public function testEnumAmount():void {
     assertStrictlyEquals(Enum.amount(MyTestEnum), 2);
+  }
+
+  [Test]
+  public function testEnumAmountThrowsOnUninitedClass():void {
+    var failed:Boolean = false;
+    try {
+      Enum.amount(String); // String is just a random class that isn't initialized as Enum
+    } catch(e:Error) {
+      failed = true;
+    }
+
+    assertTrue(failed);
   }
 }
 }
