@@ -33,9 +33,9 @@ Enum.amount(MyEnum);   // => 2
 
 ```actionscript
 public class AppState extends Enum {
-  public static const Login:AppState; // if you don't initialize it, Enum.init(...) will create a new instance
-  public static const Register:AppState;
-  public static const Dashboard:AppState;
+  public static var Login:AppState; // if you don't instantiate it, Enum.init(...) will do it by calling 'new AppState();'
+  public static var Register:AppState;
+  public static var Dashboard:AppState;
 
   {
     Enum.init(AppState);
@@ -48,6 +48,12 @@ public function changeAppState(state:AppState):void {
   //...
 }
 ```
+
+### On auto-instantiation
+
+If you only define a static value without instanciating it Enum.init(...) will instanciate it for you. Please be aware that this doesn't work for constants! (because they are constants) - You have to use `var` instead of `const` when you want auto-instanciation.
+
+So auto-instantiation is a little shorter to write, but a little slower in execution (because constants are faster). Also you could change an Enum value that is a variable (not a constant) after creation somewhere, because a variable is not locked (don't do this, ok?).
 
 
 Why?
@@ -73,10 +79,10 @@ E.g:
 
 ```actionscript
 public class Turtle extends Enum {
-  public static const Leonardo:Turtle;
-  public static const Raphael:Turtle;
-  public static const Donatello:Turtle;
-  public static const Michelangelo:Turtle;
+  public static var Leonardo:Turtle;
+  public static var Raphael:Turtle;
+  public static var Donatello:Turtle;
+  public static var Michelangelo:Turtle;
 
   {
     Enum.init(Turtle).expect(4);      // <- Because I know there are 4 of them!
