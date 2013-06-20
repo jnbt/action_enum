@@ -33,7 +33,7 @@ Enum.amount(MyEnum);   // => 2
 
 ```actionscript
 public class EAppState extends Enum {
-  public static var Login:EAppState; // if you don't instantiate it, Enum.init(...) will do it by calling 'new AppState();'
+  public static var Login:EAppState; // if you don't instantiate it, Enum.init(...) will do it
   public static var Register:EAppState;
   public static var Dashboard:EAppState;
 
