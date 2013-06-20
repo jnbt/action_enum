@@ -14,9 +14,7 @@ public class MyEnum extends Enum {
   public static const Val1:MyEnum = new MyEnum();
   public static const Val2:MyEnum = new MyEnum();
 
-  {
-    Enum.init(MyEnum).expect(2);    // optional: enforce the amount of values with .expect(...)
-  }
+  Enum.init(MyEnum).expect(2);    // optional: enforce the amount of values with .expect(...)
 }
 ```
 
@@ -37,9 +35,7 @@ public class EAppState extends Enum {
   public static var Register:EAppState;
   public static var Dashboard:EAppState;
 
-  {
-    Enum.init(EAppState);
-  }
+  Enum.init(EAppState);
 }
 
 // elsewhere in your application:
@@ -80,8 +76,6 @@ public class ETurtle extends Enum {
   public static var Donatello:ETurtle;
   public static var Michelangelo:ETurtle;
 
-  {
-    Enum.init(ETurtle).expect(4); // <- Because we know there are 4 of them!
-  }
+  Enum.init(ETurtle).expect(4); // <- Because we know there are 4 of them!
 }
 ```
