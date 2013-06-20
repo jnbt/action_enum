@@ -61,7 +61,7 @@ Why?
 
 A naive way to fake Enums is using static constants of type `String` or `int / uint` in a dedicated class.
 
-This has the downside that there is no proper *type-checking* for parameters, e.g. `changeState(state:int)` -vs- `changeState(state:EState)`
+This has the downside that there is no proper *type-checking* for parameters, e.g. `changeState(state:int)` vs `changeState(state:EState)`
 
 Also one could easily end up doing copy-paste errors when adding new values, changing the value-name but not the actual value.
 
