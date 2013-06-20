@@ -5,6 +5,8 @@ import flash.utils.Dictionary;
 import flash.utils.describeType;
 
 public class Enum {
+  public static const VERSION:Number = 1.0;
+
   private var _name:String;
 
   public function Enum() {

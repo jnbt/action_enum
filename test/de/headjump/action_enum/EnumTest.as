@@ -8,6 +8,11 @@ public class EnumTest {
   }
 
   [Test]
+  public function testVersion():void {
+    assertStrictlyEquals(Enum.VERSION, 1.0);
+  }
+
+  [Test]
   public function testInitNames():void {
     assertStrictlyEquals(MyTestEnum.Val1.name, "Val1");
     assertStrictlyEquals(MyTestEnum.Val2.name, "Val2");
