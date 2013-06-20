@@ -1,9 +1,9 @@
 action_enum
 ===========
 
-*Fake Enums for ActionScript*
+`action_enum` is a package providing Enums for ActionScript. 
 
-Actionscript (which I love) doesn't have native Enums. Most naive workarounds (see below, section 'Why?') have some downsides. So I collected the best ideas I found on the web and added some of my own.
+Most naive workarounds (see below, section 'Why?') have downsides. `action_enum` wraps proper ideas for faking Enums found on the web and adds some of its own.
 
 
 Define Enum
@@ -33,7 +33,7 @@ Enum.amount(MyEnum);   // => 2
 
 ```actionscript
 public class EAppState extends Enum {
-  public static var Login:EAppState; // if you don't instantiate it, Enum.init(...) will do it
+  public static var Login:EAppState; // if not instantiated, Enum.init(...) will do it
   public static var Register:EAppState;
   public static var Dashboard:EAppState;
 
@@ -51,21 +51,19 @@ public function changeAppState(state:EAppState):void {
 
 ### On auto-instantiation
 
-If you only define a static value without instanciating it Enum.init(...) will instanciate it for you. Please be aware that this doesn't work for constants! (because they are constants) - You have to use `var` instead of `const` when you want auto-instanciation.
+If one only defines a static value without instantiating it, Enum.init(...) will instantiate it. Please be aware that this doesn't work for constants (because they are constants)! - use `var` instead of `const` when you want auto-instanciation.
 
-So auto-instantiation is a little shorter to write, but a little slower in execution (because constants are faster). Also you could change an Enum value that is a variable (not a constant) after creation somewhere, because a variable is not locked (don't do this, ok?).
+So auto-instantiation is a little shorter to write, but a little slower in execution (because constants are faster).
 
 
 Why?
 ----
 
-A naive (and good-enough for lots of cases) way to fake Enums is using static constants of type `String` or `int / uint` in a dedicated class.
+A naive way to fake Enums is using static constants of type `String` or `int / uint` in a dedicated class.
 
-This has the downside that don't have proper *type-checking* for parameters, e.g. `changeState(state:int)` -vs- `changeState(state:EState)`
+This has the downside that there is no proper *type-checking* for parameters, e.g. `changeState(state:int)` -vs- `changeState(state:EState)`
 
-Also you could easily end up doing copy-page errors when adding new values, changing the value-name but not the actual value.
-
-E.g:
+Also one could easily end up doing copy-paste errors when adding new values, changing the value-name but not the actual value.
 
 ```actionscript
 public static const STATE1:int = 0;
@@ -73,9 +71,7 @@ public static const STATE2:int = 1;
 public static const STATE3:int = 1; // Danger! Same value as STATE2 because you messed up
 ```
 
-Sometimes I also want to ensure the number of values in an Enum to make sure I didn't miss anything.
-
-E.g:
+Sometimes one also wants to ensure the number of values in an Enum:
 
 ```actionscript
 public class ETurtle extends Enum {
@@ -85,7 +81,7 @@ public class ETurtle extends Enum {
   public static var Michelangelo:ETurtle;
 
   {
-    Enum.init(ETurtle).expect(4);      // <- Because I know there are 4 of them!
+    Enum.init(ETurtle).expect(4); // <- Because we know there are 4 of them!
   }
 }
 ```
