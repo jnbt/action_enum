@@ -34,6 +34,18 @@ public class Enum {
     return _MAP[cl].amount;
   }
 
+  private static function extractVariableOrConstant(cl:Class, name:String, info_target:Object, allow_auto_instantiate:Boolean):void {
+    if(allow_auto_instantiate && !cl[name]) {
+      cl[name] = new cl();
+    }
+
+    if(cl[name] is cl) {
+      cl[name].name = name;
+      info_target.all.push(cl[name]);
+      info_target.amount++;
+    }
+  }
+
   public static function init(cl:Class):Object {
     var desc:XML = describeType(cl),
         info:Object = {
@@ -42,9 +54,10 @@ public class Enum {
           name: getQualifiedClassName(cl).split(":").reverse()[0]
         };
     for each (var constant:XML in desc.constant) {
-      cl[constant.@name].name = constant.@name;
-      info.all.push(cl[constant.@name]);
-      info.amount++;
+      extractVariableOrConstant(cl, constant.@name, info, false);
+    }
+    for each (var variable:XML in desc.variable) {
+      extractVariableOrConstant(cl, variable.@name, info, true); // variables can be auto-instantiated
     }
 
     _MAP[cl] = info;

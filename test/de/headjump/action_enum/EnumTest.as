@@ -20,6 +20,11 @@ public class EnumTest {
 
 
   [Test]
+  public function testAutoInstantiation():void {
+    assertTrue(!!MyTestEnum.Val2);
+  }
+
+  [Test]
   public function testDoesntThrowOnReinit():void {
     MyTestEnum.Val1; // to make sure class is used
 
