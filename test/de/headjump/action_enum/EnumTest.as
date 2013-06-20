@@ -1,4 +1,6 @@
 package de.headjump.action_enum {
+import flashx.textLayout.debug.assert;
+
 import org.flexunit.asserts.assertStrictlyEquals;
 import org.flexunit.asserts.assertTrue;
 
@@ -31,6 +33,13 @@ public class EnumTest {
     }
 
     assertTrue(failed);
+  }
+
+  [Test]
+  public function testEnumAll():void {
+    assertTrue(Enum.all(MyTestEnum).indexOf(MyTestEnum.Val1) !== -1);
+    assertTrue(Enum.all(MyTestEnum).indexOf(MyTestEnum.Val2) !== -1);
+    assertStrictlyEquals(Enum.all(MyTestEnum).length, 2);
   }
 }
 }
