@@ -3,7 +3,7 @@ action_enum
 
 *Fake enums for actionscript*
 
-Actionscript (which I love) doesn't have native Enums. Most naive workarounds (see below, section 'Why?') have some downsides. So I collected the best ideas I found in the web and added some of my own sugar.
+Actionscript (which I love) doesn't have native Enums. Most naive workarounds (see below, section 'Why?') have some downsides. So I collected the best ideas I found on the web and added some of my own.
 
 
 Define Enum
@@ -70,7 +70,7 @@ E.g:
 ```actionscript
 public static const STATE1:int = 0;
 public static const STATE2:int = 1;
-public static const STATE3:int = 1;    // Danger! Same value as STATE2 because you messed up while copy-pasting
+public static const STATE3:int = 1; // Danger! Same value as STATE2 because you messed up
 ```
 
 Sometimes I also want to ensure the number of values in an Enum to make sure I didn't miss anything.
