@@ -47,9 +47,9 @@ public function changeAppState(state:EAppState):void {
 
 ### On auto-instantiation
 
-If one only defines a static value without instantiating it, Enum.init(...) will instantiate it. Please be aware that this doesn't work for constants (because they are constants)! - use `var` instead of `const` when you want auto-instanciation.
+If one only defines a static value without instantiating it, Enum.init(...) will instantiate it. Please be aware that this doesn't work for constants (because they are constants)! - use `var` instead of `const` when you want auto-instantiation.
 
-So auto-instantiation is a little shorter to write, but a little slower in execution (because constants are faster).
+So auto-instantiation is a little shorter to write, but a little slower in execution (because constants are faster than vars).
 
 
 Why?
