@@ -42,6 +42,18 @@ public class EnumTest {
   }
 
   [Test]
+  public function testEnumAllFailsOnUninitedClass():void {
+    var failed:Boolean = false;
+    try {
+      Enum.all(String);
+    } catch(e:Error) {
+      failed = true;
+    }
+
+    assertTrue(failed);
+  }
+
+  [Test]
   public function testEnumAmount():void {
     assertStrictlyEquals(Enum.amount(MyTestEnum), 2);
   }
