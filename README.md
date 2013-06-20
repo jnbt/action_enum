@@ -32,19 +32,19 @@ Enum.amount(MyEnum);   // => 2
 ### Example usage:
 
 ```actionscript
-public class AppState extends Enum {
-  public static var Login:AppState; // if you don't instantiate it, Enum.init(...) will do it by calling 'new AppState();'
-  public static var Register:AppState;
-  public static var Dashboard:AppState;
+public class EAppState extends Enum {
+  public static var Login:EAppState; // if you don't instantiate it, Enum.init(...) will do it by calling 'new AppState();'
+  public static var Register:EAppState;
+  public static var Dashboard:EAppState;
 
   {
-    Enum.init(AppState);
+    Enum.init(EAppState);
   }
 }
 
 // elsewhere in your application:
 
-public function changeAppState(state:AppState):void {
+public function changeAppState(state:EAppState):void {
   //...
 }
 ```
@@ -78,14 +78,14 @@ Sometimes I also want to ensure the number of values in an Enum to make sure I d
 E.g:
 
 ```actionscript
-public class Turtle extends Enum {
-  public static var Leonardo:Turtle;
-  public static var Raphael:Turtle;
-  public static var Donatello:Turtle;
-  public static var Michelangelo:Turtle;
+public class ETurtle extends Enum {
+  public static var Leonardo:ETurtle;
+  public static var Raphael:ETurtle;
+  public static var Donatello:ETurtle;
+  public static var Michelangelo:ETurtle;
 
   {
-    Enum.init(Turtle).expect(4);      // <- Because I know there are 4 of them!
+    Enum.init(ETurtle).expect(4);      // <- Because I know there are 4 of them!
   }
 }
 ```
