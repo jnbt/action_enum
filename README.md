@@ -1,7 +1,7 @@
 action_enum
 ===========
 
-*Fake enums for actionscript*
+*Fake Enums for ActionScript*
 
 Actionscript (which I love) doesn't have native Enums. Most naive workarounds (see below, section 'Why?') have some downsides. So I collected the best ideas I found on the web and added some of my own.
 
