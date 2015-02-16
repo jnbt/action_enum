@@ -1,5 +1,10 @@
+[travis]: https://travis-ci.org/headjump/action_enum
+[travis-badge]: https://img.shields.io/travis/headjump/action_enum.svg?branch=master
+
 action_enum
 ===========
+
+[![Travis][travis-badge]][travis]
 
 `action_enum` is a package providing Enums for ActionScript. 
 
